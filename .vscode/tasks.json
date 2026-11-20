@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1IM: API Server",
+      "type": "process",
+      "command": "C:\\Program Files\\One Identity\\One Identity Manager\\ImxClient.exe",
+      "args": ["run-apiserver", "-B"],
+      "options": { "cwd": "C:\\Program Files\\One Identity\\One Identity Manager" },
+      "isBackground": true,
+      "presentation": { "group": "1im-dev", "reveal": "always" },
+      "problemMatcher": {
+        "owner": "imx-apiserver",
+        "pattern": { "regexp": "^__never__$" },
+        "background": { "activeBegin": true, "beginsPattern": ".", "endsPattern": "." }
+      }
+    },
+    {
+      "label": "1IM: ccc watch build",
+      "type": "shell",
+      "command": "npx nx build ccc --configuration development --watch",
+      "options": { "cwd": "${workspaceFolder}/imxweb" },
+      "isBackground": true,
+      "presentation": { "group": "1im-dev", "reveal": "always" },
+      "problemMatcher": {
+        "owner": "ccc-watch",
+        "pattern": { "regexp": "^__never__$" },
+        "background": {
+          "activeBegin": true,
+          "beginsPattern": "Building entry point|File change detected",
+          "endsPattern": "Watching for file changes"
+        }
+      }
+    },
+    {
+      "label": "1IM: portal dev server",
+      "type": "shell",
+      "command": "npx ng serve qer-app-portal --configuration development",
+      "options": { "cwd": "${workspaceFolder}/imxweb" },
+      "dependsOn": ["1IM: ccc watch build"],
+      "isBackground": true,
+      "presentation": { "group": "1im-dev", "reveal": "always" },
+      "problemMatcher": {
+        "owner": "portal-serve",
+        "pattern": { "regexp": "^__never__$" },
+        "background": {
+          "activeBegin": true,
+          "beginsPattern": "Building\\.\\.\\.|Changes detected",
+          "endsPattern": "Application bundle generation (complete|failed)"
+        }
+      }
+    },
+    {
+      "label": "1IM: start dev environment",
+      "dependsOn": ["1IM: API Server", "1IM: portal dev server"],
+      "problemMatcher": []
+    }
+  ]
+}

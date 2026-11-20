@@ -24,24 +24,25 @@
  *
  */
 
-import { Injectable } from "@angular/core";
-import { PlugInInfo } from "@imx-modules/imx-api-qbm";
-import { AadConfigModule } from "aad";
-import { AobConfigModule } from "aob";
-import { ApcConfigModule } from "apc";
-import { AttConfigModule } from "att";
-import { CplConfigModule } from "cpl";
-import { HdsConfigModule } from "hds";
-import { IqcConfigModule } from "iqc";
-import { OlgConfigModule } from "olg";
-import { PolConfigModule } from "pol";
-import { QamConfigModule } from "qam";
-import { DynamicModuleImportService } from "qbm";
-import { RmbConfigModule } from "rmb";
-import { RmsConfigModule } from "rms";
-import { RpsConfigModule } from "rps";
-import { SacConfigModule } from "sac";
-import { TsbConfigModule } from "tsb";
+import { Injectable } from '@angular/core';
+import { PlugInInfo } from '@imx-modules/imx-api-qbm';
+import { AadConfigModule } from 'aad';
+import { AobConfigModule } from 'aob';
+import { ApcConfigModule } from 'apc';
+import { AttConfigModule } from 'att';
+import { CplConfigModule } from 'cpl';
+import { HdsConfigModule } from 'hds';
+import { IqcConfigModule } from 'iqc';
+import { OlgConfigModule } from 'olg';
+import { PolConfigModule } from 'pol';
+import { QamConfigModule } from 'qam';
+import { DynamicModuleImportService } from 'qbm';
+import { RmbConfigModule } from 'rmb';
+import { RmsConfigModule } from 'rms';
+import { RpsConfigModule } from 'rps';
+import { SacConfigModule } from 'sac';
+import { TsbConfigModule } from 'tsb';
+import { CccConfigModule } from 'ccc';
 
 @Injectable({ providedIn: 'root' })
 export class PortalDynamicModuleImportService extends DynamicModuleImportService {
@@ -145,10 +146,15 @@ export class PortalDynamicModuleImportService extends DynamicModuleImportService
       await this.loadModule(module, callback);
     }
   }
-  
-  async loadThirdPartyModules(modules: PlugInInfo[]): Promise<void> {
-    // Use the JSDoc example of how to handle any external modules you have built
-    return;
-  }
 
+  async loadThirdPartyModules(modules: PlugInInfo[]): Promise<void> {
+    const module = modules.find((m) => m.Container === 'ccc');
+    if (module) {
+      const callback = async () => {
+        await import('ccc');
+        return [CccConfigModule];
+      };
+      await this.loadModule(module, callback);
+    }
+  }
 }

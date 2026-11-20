@@ -1,0 +1,11 @@
+@if (reportCount > 0) {
+  <imx-badge-tile
+    data-imx-identifier="ccc-start-tile-team-count"
+    [caption]="'#LDS#Identities I manage' | translate"
+    [tooltip]="'#LDS#Shows the identities you are responsible for.' | translate"
+    [value]="reportCount.toString()"
+    [identifier]="'ccc-team-count'"
+    (actionClick)="goToMyTeam()"
+  >
+  </imx-badge-tile>
+}

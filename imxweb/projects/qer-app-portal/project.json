@@ -157,7 +157,8 @@
             "rms",
             "rps",
             "sac",
-            "tsb"
+            "tsb",
+            "ccc"
           ],
           "target": "build"
         }

@@ -1,0 +1,10 @@
+<imx-icon-tile data-imx-identifier="ccc-start-tile-profile-shortcut" [caption]="'#LDS#My profile' | translate"
+    [subtitle]="'#LDS#Check that your personal data is up to date.' | translate" [image]="'user'"
+    [identifier]="'ccc-profile-shortcut'">
+    <ng-template #ActionTemplate>
+        <button mat-button class="imx-button-uppercase" color="primary" (click)="goToProfile()">
+            <span>{{ '#LDS#Open my profile' | translate }}</span>
+            <eui-icon class="imx-margin-left-15" icon="forward"></eui-icon>
+        </button>
+    </ng-template>
+</imx-icon-tile>

@@ -71,6 +71,7 @@
     "moment-timezone": "0.5.48",
     "ng-recaptcha-2": "16.0.1",
     "ngx-logger": "5.0.12",
+    "npm": "^12.2.2",
     "nx": "22.6.5",
     "rxjs": "7.8.2",
     "swagger-ui-dist": "5.32.4",
@@ -161,5 +162,17 @@
     },
     "koa": "^3.1.2",
     "serialize-javascript": "^7.0.4"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true,
+    "esbuild@0.28.0": true,
+    "esbuild@0.25.9": true,
+    "@compodoc/compodoc@1.2.1": true,
+    "@parcel/watcher@2.5.6": true,
+    "@scarf/scarf@1.4.0": true,
+    "core-js@3.49.0": true,
+    "lmdb@3.4.2": true,
+    "msgpackr-extract@3.0.3": true,
+    "nx@22.6.5": true
   }
 }

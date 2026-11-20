@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ccc",
+  "sourceRoot": "projects/ccc/src",
+  "implicitDependencies": ["qer"],
+  "projectType": "library",
+  "prefix": "ccc",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "tsConfig": "projects/ccc/tsconfig.lib.json",
+        "project": "projects/ccc/ng-package.json"
+      },
+      "configurations": {
+        "production": { "tsConfig": "projects/ccc/tsconfig.lib.prod.json" },
+        "development": { "tsConfig": "projects/ccc/tsconfig.lib.json" }
+      },
+      "outputs": ["{workspaceRoot}/dist/ccc"]
+    }
+  }
+}
