@@ -22,7 +22,12 @@
       "att": ["dist/att"],
       "att/*": ["dist/att/*"],
       "ccc": ["dist/ccc"],
-      "ccc/*": ["dist/ccc/*"],
+      "ccc/*": [
+        "dist/ccc/*"
+      ],
+      "cccteam": [
+        "./dist/cccteam"
+      ],
       "cpl": ["dist/cpl"],
       "cpl/*": ["dist/cpl/*"],
       "dpr": ["dist/dpr"],
@@ -72,5 +77,13 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "strictNullInputTypes": false
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/cccteam/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/cccteam/tsconfig.spec.json"
+    }
+  ]
 }

@@ -71,7 +71,7 @@
     "moment-timezone": "0.5.48",
     "ng-recaptcha-2": "16.0.1",
     "ngx-logger": "5.0.12",
-    "npm": "^12.2.2",
+    "npm": "^12.2.3",
     "nx": "22.6.5",
     "rxjs": "7.8.2",
     "swagger-ui-dist": "5.32.4",
